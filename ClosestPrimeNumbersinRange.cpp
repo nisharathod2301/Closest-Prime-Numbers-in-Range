@@ -5,8 +5,8 @@
 using namespace std;
 
 int main() {
-    int left = 10;
-    int right = 19;
+    int left = 4;
+    int right = 6;
     int len = right-left+1;
     vector <int> op;
     vector<int> vec;
@@ -43,13 +43,18 @@ int main() {
     vector<int>nes;
     nes.insert(nes.begin(),2,0);
     int distance=right;
-    for(int k = 0; k<np-1;k++){
-        // cout<<op[k]<<endl;
-        if(op[k+1]-op[k]<distance){
-            distance=op[k+1]-op[k];
-            nes[0]=op[k];
-            nes[1]=op[k+1];
+    if(np>1){
+        for(int k = 0; k<np-1;k++){
+            // cout<<op[k]<<endl;
+            if(op[k+1]-op[k]<distance){
+                distance=op[k+1]-op[k];
+                nes[0]=op[k];
+                nes[1]=op[k+1];
+            }
         }
+    }
+    else{
+        nes[0]=nes[1]=-1;
     }
     for(int m=0;m<2;m++){
         cout<<nes[m]<<endl;
